@@ -1,37 +1,38 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Pagamento;
-import com.example.demo.repository.PagamentoRepository;
+import com.example.demo.Entities.Pagamento;
+import com.example.demo.dto.PagamentoDTO;
+import com.example.demo.mapper.PagamentoMapper;
+import com.example.demo.repository.IPagamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PagamentoService {
 
     @Autowired
-    private PagamentoRepository pagamentoRepository;
+    private IPagamentoRepository pagamentoRepository;
 
-    public Pagamento criar(Pagamento pagamento) {
-        return pagamentoRepository.save(pagamento);
+    @Autowired
+    private PagamentoMapper pagamentoMapper;
+
+    public List<PagamentoDTO> listarTodos() {
+        List<Pagamento> pagamentos = pagamentoRepository.findAll();
+        return pagamentoMapper.toDTOList(pagamentos);
     }
 
-    public List<Pagamento> listarTodos() {
-        return pagamentoRepository.findAll();
+    public Optional<PagamentoDTO> buscarPorId(Long id) {
+        return pagamentoRepository.findById(id)
+                .map(pagamentoMapper::toDTO);
     }
 
-    public Pagamento buscarPorId(Long id) {
-        return pagamentoRepository.findById(id).orElse(null);
-    }
-
-    public Pagamento atualizarStatus(Long id, String novoStatus) {
-        Pagamento pagamento = buscarPorId(id);
-        if (pagamento != null) {
-            pagamento.setStatus(novoStatus);
-            return pagamentoRepository.save(pagamento);
-        }
-        return null;
+    public PagamentoDTO salvar(PagamentoDTO pagamentoDTO) {
+        Pagamento pagamento = pagamentoMapper.toEntity(pagamentoDTO);
+        Pagamento salvo = pagamentoRepository.save(pagamento);
+        return pagamentoMapper.toDTO(salvo);
     }
 
     public void deletar(Long id) {
