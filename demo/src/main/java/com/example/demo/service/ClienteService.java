@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-
 import com.example.demo.Entities.Cliente;
 import com.example.demo.dto.ClienteDTO;
 import com.example.demo.mapper.ClienteMapper;
@@ -10,8 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-
 
 @Service
 public class ClienteService {
@@ -21,13 +18,12 @@ public class ClienteService {
 
     @Autowired
     private ClienteMapper clienteMapper;
-    
 
-    public List<ClienteoDTO> listarTodos() {
+    public List<ClienteDTO> listarTodos() {
         return clienteMapper.toDTOList(clienteRepository.findAll());
     }
 
-    public Optional<UsuarioDTO> buscarPorId(Long id) {
+    public Optional<ClienteDTO> buscarPorId(Long id) {
         return clienteRepository.findById(id).map(clienteMapper::toDTO);
     }
 
@@ -40,4 +36,3 @@ public class ClienteService {
         clienteRepository.deleteById(id);
     }
 }
-
