@@ -25,7 +25,7 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-    @Operation(summary = "Lista todos os clientes", description = "Retorna uma lista com todos os clientes cadastrados")
+    @Operation(summary = "Lista todos os clientes.", description = "Retorna uma lista com todos os clientes cadastrados")
     @GetMapping
     public ResponseEntity<List<ClienteDTO>> listarClientes() {
         List<ClienteDTO> clientes = clienteService.listarTodos();
