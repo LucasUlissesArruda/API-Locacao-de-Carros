@@ -24,5 +24,5 @@ public class ManutencaoDTO {
     private String descricao;
 
     @NotBlank(message = "O status da manutenção é obrigatório")
-    private String status;
+    private String status;
 }

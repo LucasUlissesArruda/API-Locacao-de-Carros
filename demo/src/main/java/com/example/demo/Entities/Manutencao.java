@@ -29,5 +29,5 @@ public class Manutencao {
     private String descricao;
 
     @Column(nullable = false)
-    private String status;
+    private String status;
 }

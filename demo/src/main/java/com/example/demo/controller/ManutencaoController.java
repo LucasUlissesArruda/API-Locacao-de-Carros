@@ -60,5 +60,5 @@ public class ManutencaoController {
     public ResponseEntity<Void> deletarManutencao(@PathVariable Long id) {
         manutencaoService.deletar(id);
         return ResponseEntity.noContent().build();
-    }
+    }
 }

@@ -13,5 +13,5 @@ public interface ManutencaoMapper {
 
     Manutencao toEntity(ManutencaoDTO manutencaoDTO);
 
-    List<ManutencaoDTO> toDTOList(List<Manutencao> manutencoes);
+    List<ManutencaoDTO> toDTOList(List<Manutencao> manutencoes);
 }

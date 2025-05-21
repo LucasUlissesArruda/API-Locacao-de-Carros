@@ -37,5 +37,5 @@ public class ManutencaoService {
 
     public void deletar(Long id) {
         manutencaoRepository.deleteById(id);
-    }
+    }
 }
