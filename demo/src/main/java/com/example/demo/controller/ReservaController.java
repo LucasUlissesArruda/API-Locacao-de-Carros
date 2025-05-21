@@ -60,5 +60,5 @@ public class ReservaController {
     public ResponseEntity<Void> deletarReserva(@PathVariable Long id) {
         reservaService.deletar(id);
         return ResponseEntity.noContent().build();
-    }
+    }
 }

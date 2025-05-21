@@ -30,5 +30,5 @@ public class Reserva {
     private LocalDateTime dataFim;
 
     @Column(nullable = false)
-    private String status;
+    private String status;
 }

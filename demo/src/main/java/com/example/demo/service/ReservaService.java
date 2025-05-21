@@ -37,5 +37,5 @@ public class ReservaService {
 
     public void deletar(Long id) {
         reservaRepository.deleteById(id);
-    }
+    }
 }
