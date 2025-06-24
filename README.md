@@ -40,7 +40,6 @@ Este projeto foi construído com as seguintes tecnologias e padrões:
 * **Mapeamento de Objetos:** [MapStruct](https://mapstruct.org/)
 * **Redução de Código:** [Lombok](https://projectlombok.org/)
 * **Documentação da API:** [SpringDoc (Swagger UI)](https://springdoc.org/)
-* **Validação de Dados:** [Jakarta Bean Validation](https://beanvalidation.org/)
 
 ---
 
